@@ -1,0 +1,52 @@
+<ion-app>
+  <ion-header>
+    <mat-toolbar class="mat-primary" >
+      <h3 [style.color]="'white'">{{task.name}}</h3> <hr/>
+    </mat-toolbar>
+  </ion-header>
+
+  <ion-content>
+      
+      <ion-card>
+        <ion-grid>
+          <ion-row>
+            <p><strong>Project: </strong>{{task.project.title}}</p>      
+          </ion-row>
+        </ion-grid>
+        <div style="margin-top: 20px;">
+          &nbsp;<button class="mat-primary" mat-raised-button>
+          <ion-icon name="arrow-back" style="font-size: 30px;" routerLink="/task-list"></ion-icon> &nbsp;
+        </button>
+        </div> <br/>
+      </ion-card>
+      
+  </ion-content>
+  <ion-footer >
+    <ion-toolbar >
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button class="tabicon" routerLink="/home">
+            <ion-icon name="clipboard"></ion-icon>
+            <ion-label>Projects</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button routerLink="/task-list" class="tabicon">
+            <ion-icon name="list-box" ></ion-icon>
+            <ion-label>Tasks</ion-label>
+            <!-- <ion-badge>6</ion-badge> -->
+          </ion-tab-button>
+      
+          <ion-tab-button tab="notifications" class="tabicon">
+            <ion-icon name="notifications" ></ion-icon>
+            <ion-label>Notifications</ion-label>
+          </ion-tab-button>
+    
+          <ion-tab-button tab="about" class="tabicon">
+            <ion-icon name="search" ></ion-icon>
+            <ion-label>Search</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs >
+    </ion-toolbar>
+  </ion-footer >
+</ion-app >

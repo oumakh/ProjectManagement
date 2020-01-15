@@ -1,0 +1,26 @@
+.exit-icon {
+    font-size: 25px;
+}
+.tabicon {
+    color: blueviolet;
+}
+ion-content {
+    --background: url(../../../assets/projectb.jpg) 0 0/100% 100% no-repeat ;
+}
+
+.col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.col:last-child {
+    border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px grey;
+}
+ion-card {
+    background-color: white;
+}

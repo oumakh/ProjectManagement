@@ -1,0 +1,41 @@
+<ion-content class="background-image" padding >
+  <div [hidden]="loggedIn">
+    <form (ngSubmit)="onLogin()">
+      <ion-grid>
+        <ion-row color="primary" justify-content-center>
+          <ion-col class="center" align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div class="text" text-center>
+                <h1>Login</h1>
+                <p>Enter your credentials</p>
+              </div>
+              
+            <div padding>
+              <div *ngIf="loginError" style=" color:red;">
+                Incorrect username or password. <br/>
+              </div>
+              <br/><ion-item>
+                <ion-icon name='person' item-right></ion-icon>&nbsp;
+                <ion-input name="username" type="username" placeholder="Your Username" 
+                [(ngModel)]="credential.username" id="username"  position="floating" required="required"></ion-input>
+              </ion-item> <br/>
+              <ion-item>
+                <ion-icon name='key' item-right></ion-icon>&nbsp;
+                <ion-input name="password" type="password" placeholder="Your Password" 
+                [(ngModel)]="credential.password" id="password" required="required"></ion-input>
+              </ion-item>
+            </div>
+            <div padding>
+              <ion-button size="large" type="submit"  expand="block">Login</ion-button>
+            </div>
+            <a class="fpw" routerLink="/forgot-password">Forgot your password?</a>
+            <a class="new" routerLink="/new-account">Create new account?</a>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+  <div [hidden]="!loggedIn">
+    <ion-icon class="home-icon" name="home" routerLink="/home"></ion-icon>
+    <h2>You have logged In</h2>
+</div>
+  </ion-content>

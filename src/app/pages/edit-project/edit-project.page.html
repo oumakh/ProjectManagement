@@ -1,0 +1,73 @@
+<ion-header>
+  <mat-toolbar class="mat-primary" >
+    <h3 [style.color]="'white'">{{project.title}}</h3> <hr/>
+  </mat-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div [hidden]="projectUpdated">
+      <ion-card id="card">
+        <ion-card-header>
+          <ion-card-title>Update Project Information</ion-card-title>
+          <ion-card-subtitle >(* is a required field)</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <form (ngSubmit)="onSubmit()">
+            <mat-form-field>
+              <input matInput id="title" type="text" required [(ngModel)]="project.title" name="title" placeholder="Title">
+            </mat-form-field> <br/>
+            <mat-form-field>
+              <input matInput id="publisher" type="text" required [(ngModel)]="project.publisher" name="publisher" placeholder="Publisher">
+            </mat-form-field><br/>
+            <mat-form-field>
+              <input matInput id="publicationDate" type="date" required [(ngModel)]="project.publicationDate" name="publicationDate" placeholder="PublicationDate">
+            </mat-form-field> <br/>
+            <mat-form-field>
+              <input matInput id="projectStartDate" type="date" required [(ngModel)]="project.projectStartDate" name="publicationDate" placeholder="ProjectStartDate">
+            </mat-form-field><br/> 
+            <mat-form-field>
+              <input matInput id="projectEndDate" type="date" required [(ngModel)]="project.projectEndDate" name="publicationDate" placeholder="ProjectEndDate">
+            </mat-form-field> <br/>
+            <mat-slide-toggle [color]="color" [checked]="checked" [disabled]="disabled" [(ngModel)]="project.active" name="active">Active</mat-slide-toggle><br/>
+            <button class="mat-primary" mat-raised-button type="submit">Update Project</button> &nbsp;
+            <a class="mat-warn" mat-raised-button routerLink="/home">Cancel</a>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div class="row" [hidden]="!projectUpdated">
+      <h3 style="color:aliceblue;">Project updated successfully!</h3>
+    </div>
+  </div>
+
+</ion-content>
+<ion-footer >
+  <ion-toolbar >
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button  class="tabicon" routerLink="/home">
+          <ion-icon name="clipboard"></ion-icon>
+          <ion-label>Projects</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="tasks" class="tabicon">
+          <ion-icon name="list-box" ></ion-icon>
+          <ion-label>Tasks</ion-label>
+          <!-- <ion-badge>6</ion-badge> -->
+        </ion-tab-button>
+    
+        <ion-tab-button tab="notifications" class="tabicon">
+          <ion-icon name="notifications" ></ion-icon>
+          <ion-label>Notifications</ion-label>
+        </ion-tab-button>
+  
+        <ion-tab-button tab="about" class="tabicon">
+          <ion-icon name="search" ></ion-icon>
+          <ion-label>Search</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs >
+  </ion-toolbar>
+</ion-footer >

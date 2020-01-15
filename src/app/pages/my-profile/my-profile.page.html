@@ -1,0 +1,77 @@
+<ion-header>
+  <mat-toolbar class="mat-primary" >
+    <h3 [style.color]="'white'">My profile</h3> <hr/>
+  </mat-toolbar>
+</ion-header>
+													
+
+<ion-content>
+      <ion-card id="card">
+        <div class="alert alert-success" *ngIf="updateSuccess">
+          <strong style="color: blueviolet;">&nbsp; Update Success!</strong>
+        </div>
+      
+        <ion-card-content>
+          <form (ngSubmit)="onUpdateUserInfo()">
+            <mat-form-field [hidden]="true">
+              <input matInput type="number" name="id" [(ngModel)]="user.id">
+            </mat-form-field> <br/>
+            <div class="bg-info" *ngIf="updateUserInfo">User info updated.</div>
+            <mat-form-field>
+              <input matInput placeholder="First Name" type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName">
+            </mat-form-field><br/>
+            <mat-form-field>
+              <input matInput placeholder="Last Name" type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" />
+            </mat-form-field> <br/>
+            <mat-form-field>
+              <span *ngIf="usernameExists" style="color:red">Username already exists. Choose a different one.</span>
+              <input matInput placeholder="Username" required="required" type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" />	
+            </mat-form-field><br/> 
+            <mat-form-field>
+              <input matInput placeholder=" Current Password *" type="password" class="form-control" id="password" name="password" [(ngModel)]="currentPassword" />	
+            </mat-form-field> <br/>
+            <mat-form-field>
+                <span *ngIf="emailExists" style="color:red">Email already exists. Choose a different one.</span>
+                <input matInput placeholder="Email Address" required="required" type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" />
+            </mat-form-field> <br/>
+            <mat-form-field>
+                <span id="checkPasswordMatch" style="color:red;"></span>
+                <input matInput placeholder="New Password *" type="password" class="form-control" id="txtNewPassword" name="txtNewPassword" [(ngModel)]="newPassword" />
+          </mat-form-field> <br/>
+          <mat-form-field>
+              <input matInput placeholder="Confirm New Password *" type="password" class="form-control" id="txtConfirmPassword" name="txtNewPassword"  />
+           </mat-form-field> <br/>
+            <button class="mat-primary" mat-raised-button type="submit" id="udpateuserInfoButton">Save</button> &nbsp;
+          </form>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>
+<ion-footer >
+  <ion-toolbar >
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button  class="tabicon" routerLink="/home">
+          <ion-icon name="clipboard"></ion-icon>
+          <ion-label>Projects</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="tasks" class="tabicon">
+          <ion-icon name="list-box" ></ion-icon>
+          <ion-label>Tasks</ion-label>
+          <!-- <ion-badge>6</ion-badge> -->
+        </ion-tab-button>
+    
+        <ion-tab-button tab="notifications" class="tabicon">
+          <ion-icon name="notifications" ></ion-icon>
+          <ion-label>Notifications</ion-label>
+        </ion-tab-button>
+  
+        <ion-tab-button tab="about" class="tabicon">
+          <ion-icon name="search" ></ion-icon>
+          <ion-label>Search</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs >
+  </ion-toolbar>
+</ion-footer >

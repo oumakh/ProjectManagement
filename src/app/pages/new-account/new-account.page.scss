@@ -1,0 +1,65 @@
+.background-image{
+    --background: url(../../../assets/a.jpg) 0 0/100% 100% no-repeat ;
+
+    
+}
+.center {
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    right: 50%;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-left: 0;
+}
+ion-item{
+    --background: #fff;
+    --color: #6b5b95;
+}
+
+.fpw {
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    right: 0%;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-left: 0;
+    color:#EBECF7;
+}
+
+.new {
+    position: absolute;
+    top: 110%;
+    left: 30%;
+    right: 0%;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-left: 0;
+    color:#EBECF7;
+}
+
+.text {
+    color: white;
+}
+ h2 {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    right: 0%;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-left: 0;
+    color:#EBECF7;
+ }
+ 
+ .home-icon {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    left: 85%;
+    right: 0%;
+    margin: 0 auto;
+    margin-top: 0;
+    margin-left: 0;
+ }

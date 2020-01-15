@@ -1,0 +1,70 @@
+<ion-app  [hidden]="!loggedIn">
+  <ion-header>
+    <mat-toolbar class="mat-primary" >
+      <h3 [style.color]="'white'">Tasks</h3> <hr/>
+    </mat-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">	
+     <ion-card>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <input type="checkbox" (change)="updateSelected($event.target.checked)" />&nbsp;&nbsp;
+            <h2>Select All</h2>
+
+          </ion-row>
+        </ion-grid>
+        <ion-grid *ngFor = "let task of taskList">
+          <ion-row>
+            <ion-col>
+              <input type="checkbox" [checked]="allChecked" (change)="updateRemoveTaskList($event.target.checked, task)" />&nbsp;
+              <a (click)="onSelect(task)" style="cursor:pointer">{{task.name}} </a>
+            </ion-col>
+            <ion-col>
+              <ion-icon name="eye" (click)="onSelect(task)" value="delete" style="color:#0074D9; font-size: 20px;"></ion-icon>&nbsp;
+              <ion-icon name="trash" (click)="openDialog(task)" value="delete" style="color:#f7786b; font-size: 20px;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button class="mat-warn" mat-raised-button id="deleteSelected" (click)="removeSelectedTasks()">Delete</button> &nbsp;
+      </ion-card-content>
+     </ion-card>
+     
+    <ion-fab vertical="bottom" horizontal="end"  slot="fixed" >
+      <ion-fab-button >
+        <ion-icon name="create" routerLink="/add-task"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+
+
+  <ion-footer >
+    <ion-toolbar >
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button class="tabicon" routerLink="/home">
+            <ion-icon name="clipboard"></ion-icon>
+            <ion-label>Projects</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button tab="tasks" class="tabicon">
+            <ion-icon name="list-box" ></ion-icon>
+            <ion-label>Tasks</ion-label>
+            <!-- <ion-badge>6</ion-badge> -->
+          </ion-tab-button>
+      
+          <ion-tab-button  class="tabicon" routerLink="/task-list">
+            <ion-icon name="notifications" ></ion-icon>
+            <ion-label>Notifications</ion-label>
+          </ion-tab-button>
+    
+          <ion-tab-button tab="about" class="tabicon">
+            <ion-icon name="search" ></ion-icon>
+            <ion-label>Search</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs >
+    </ion-toolbar>
+  </ion-footer >
+</ion-app >

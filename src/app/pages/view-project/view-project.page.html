@@ -1,0 +1,67 @@
+<ion-app>
+  <ion-header>
+    <mat-toolbar class="mat-primary" >
+      <h3 [style.color]="'white'">{{project.title}}</h3> <hr/>
+    </mat-toolbar>
+  </ion-header>
+
+  <ion-content>
+      
+      <ion-card>
+        <ion-grid>
+          <ion-row>
+            <p><strong>Publisher: </strong>{{project.publisher}}</p>
+          </ion-row>
+          <ion-row>
+            <p><strong>Publication Date: </strong>{{project.publicationDate}}</p>
+          </ion-row>
+          <ion-row>
+            <p><strong>Project Start Date: </strong>{{project.projectEndDate}}</p>
+          </ion-row>
+          <ion-row>
+            <p><strong>Project End  Date: </strong>{{project.projectEndDate}}</p>      
+          </ion-row>
+          <ion-row>
+            <p><strong>Active: </strong>{{project.active}}</p>
+          </ion-row>
+        </ion-grid>
+        <div style="margin-top: 20px;">
+          &nbsp;<button class="mat-primary" mat-raised-button>
+          <ion-icon name="arrow-back" style="font-size: 30px;" routerLink="/home"></ion-icon> &nbsp;
+        </button>
+        &nbsp;<button class="mat-primary" mat-raised-button>
+          <ion-icon name="create" style="font-size: 40px;" (click)="onSelect(project)" style="cursor: pointer"></ion-icon>
+        </button>
+        </div> <br/>
+      </ion-card>
+      
+  </ion-content>
+  <ion-footer >
+    <ion-toolbar >
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button class="tabicon" routerLink="/home">
+            <ion-icon name="clipboard"></ion-icon>
+            <ion-label>Projects</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button tab="tasks" class="tabicon">
+            <ion-icon name="list-box" ></ion-icon>
+            <ion-label>Tasks</ion-label>
+            <!-- <ion-badge>6</ion-badge> -->
+          </ion-tab-button>
+      
+          <ion-tab-button tab="notifications" class="tabicon">
+            <ion-icon name="notifications" ></ion-icon>
+            <ion-label>Notifications</ion-label>
+          </ion-tab-button>
+    
+          <ion-tab-button tab="about" class="tabicon">
+            <ion-icon name="search" ></ion-icon>
+            <ion-label>Search</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs >
+    </ion-toolbar>
+  </ion-footer >
+</ion-app >
